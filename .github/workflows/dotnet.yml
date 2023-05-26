@@ -28,3 +28,8 @@ jobs:
     - name: Test
       working-directory: src/crispy-guacamole/
       run: dotnet test --no-build --verbosity normal
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+#         name: # optional, default is artifact
+        path: src/
