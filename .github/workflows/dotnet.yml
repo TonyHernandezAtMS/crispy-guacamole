@@ -35,17 +35,17 @@ jobs:
       with:
 #         name: # optional, default is artifact
         path: src/
-    - name: Create GitHub Release
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const response = await github.rest.repos.createRelease({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            tag_name: 'pr${{ github.event.push.after }}',
-            name: 'Release for PR #${{ github.event.push.after }}',
-            body: 'Add release notes or description here'
-          });
-          console.log(response.data.html_url);
-          console.log(response.data.assets_url);
+#     - name: Create GitHub Release
+#       uses: actions/github-script@v6
+#       with:
+#         script: |
+#           const response = await github.rest.repos.createRelease({
+#             owner: context.repo.owner,
+#             repo: context.repo.repo,
+#             tag_name: 'pr${{ github.event.push.after }}',
+#             name: 'Release for PR #${{ github.event.push.after }}',
+#             body: 'Add release notes or description here'
+#           });
+#           console.log(response.data.html_url);
+#           console.log(response.data.assets_url);
     - run: echo '${{toJSON(steps)}}'
