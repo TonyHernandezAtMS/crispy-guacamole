@@ -35,7 +35,6 @@ jobs:
       with:
 #         name: # optional, default is artifact
         path: src/
-    - run: echo '${{toJSON(steps.upload.outputs)}}'
     - name: Create GitHub Release
       uses: actions/github-script@v6
       with:
@@ -49,3 +48,4 @@ jobs:
           });
           console.log(response.data.html_url);
           console.log(response.data.assets_url);
+    - run: echo '${{toJSON(steps)}}'
