@@ -42,7 +42,7 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
         RELEASE_TAG: ${{ steps.version.outputs.version }}
-        ASSET_FILE_NAME: ${{ steps.version.outputs.version }}
+        ASSET_FILE_NAME: ${{ format('{0}_build.zip',steps.version.outputs.version) }}
       run: |
         zip -r9 $ASSET_FILE_NAME ./src/crispy-guacamole/bin/Debug/net6.0/*
         gh release create $RELEASE_TAG $ASSET_FILE_NAME
