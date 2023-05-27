@@ -41,7 +41,8 @@ jobs:
     - name: Create GitHub Release
       env:
         GH_TOKEN: ${{ github.token }}
-        RELEASE_TAG: ${{ steps.versioin.outputs.version }}
+        RELEASE_TAG: ${{ steps.version.outputs.version }}
+        ASSET_FILE_NAME: ${{ steps.version.outputs.version }}
       run: |
-        zip -r9 ${RELEASE_TAG} ./src/crispy-guacamole/bin/Debug/net6.0/*
-        gh release create ${RELEASE_TAG} ${RELEASE_TAG}
+        zip -r9 $ASSET_FILE_NAME ./src/crispy-guacamole/bin/Debug/net6.0/*
+        gh release create $RELEASE_TAG $ASSET_FILE_NAME
