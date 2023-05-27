@@ -48,4 +48,4 @@ jobs:
           });
           console.log(response.data.html_url);
           console.log(response.data.assets_url);
-          console.log(steps.upload);
+          console.log({{steps.upload.outputs}});
