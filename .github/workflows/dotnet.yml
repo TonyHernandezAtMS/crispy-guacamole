@@ -34,10 +34,14 @@ jobs:
       working-directory: src/crispy-guacamole/
       run: dotnet test --no-build --verbosity normal
       
-    - name: Git Version
-      id: version
-      uses: codacy/git-version@2.7.1
-        
+#     - name: Git Version
+#       id: version
+#       uses: codacy/git-version@2
+#       with:
+#         release-branch: main
+    - run: dotnet tool install --global GitVersion.Tool 
+    - run: dotnet-gitversion /output buildserver
+    - run: env
     - name: Create GitHub Release
       env:
         GH_TOKEN: ${{ github.token }}
