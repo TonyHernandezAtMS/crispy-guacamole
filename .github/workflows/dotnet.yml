@@ -43,6 +43,8 @@ jobs:
 #         release-branch: main
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0
+      with:
+        versionSpec: '6.x'
 
     - name: Determine Version
       id:   gitversion # id to later be referenced
